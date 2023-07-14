@@ -158,7 +158,7 @@ int main(int argc, char* argv[]) {
 		}
 		//if packet has data
 		else{
-			printf("header : %d data_off : %d\n", header->len, data_offset);
+			//printf("header : %d data_off : %d\n", header->len, data_offset);
 			char * data = packet+data_offset;
 			int data_len = header->len - data_offset;
 			//Check the ethernet padding
@@ -167,10 +167,10 @@ int main(int argc, char* argv[]) {
 				//print the maximum 10 data
 				for(int i = 0; i<(data_len >= 10 ? 10 : data_len) ;i++){
 					printf("%c", data[i]);
-				}	
+				}
+				printf("\n");	
 			}
 		}	
-		printf("\n");
 	}
 
 	pcap_close(pcap);
